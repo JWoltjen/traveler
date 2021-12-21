@@ -45,8 +45,9 @@ function App() {
               <Star/>
               <Star/>
             </div>
-           
             <label>Information</label>
+            <span className="username">Created by <b>Jeff </b></span>
+            <span className="date">1 hour ago</span>
           </div>
         </Popup>
   </ReactMapGL>
