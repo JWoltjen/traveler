@@ -12,8 +12,10 @@ function App() {
   });
   return (
     <div className="App">
+      hellov
     <ReactMapGL
     {...viewport}
+    mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
     onViewportChange={nextViewport => setViewport(nextViewport)}
   />
   </div>
