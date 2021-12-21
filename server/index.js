@@ -9,6 +9,7 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
 }).catch((err) => console.log(err)
 )
 
+
 app.listen(5000, ()=> {
     console.log("Backend server is running!")
 })
