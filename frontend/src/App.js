@@ -36,7 +36,7 @@ function App() {
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapStyle="mapbox://styles/jwoltjen/ckxglnm0n07ay14o9sc1vie84"
       >
-      {pins && pins.map(p => (
+      {pins.map(p => (
       <>
         <Marker
           longitude={p.long}
@@ -46,7 +46,7 @@ function App() {
         >
           <Room style={{fontSize: viewport.zoom * 7, color:"slateblue"}}/>
         </Marker>
-        {/* <Popup
+        <Popup
               latitude={p.lat}
               longitude={p.long}
               closeButton={true}
@@ -64,11 +64,11 @@ function App() {
                   <Star className="star"/>
                   <Star className="star"/>
                 </div>
-                <label>Information</label>
-                <span className="username">Created by <b>{p.user}</b></span>
-                <span className="date">1 hour ago</span>
+                  <label>Information</label>
+                  <span className="username">Created by <b>{p.user}</b></span>
+                  <span className="date">1 hour ago</span>
               </div>
-          </Popup> */}
+          </Popup>
         </>
       ))}
     </ReactMapGL>
@@ -77,3 +77,6 @@ function App() {
 }
 
 export default App;
+
+
+          
