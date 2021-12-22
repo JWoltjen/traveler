@@ -6,8 +6,10 @@ import axios from 'axios';
 import { format } from "timeago.js"
 
 function App() {
+  const currentUser = "john"
   const [pins, setPins] = useState([])
   const [currentPlaceId, setCurrentPlaceId] = useState(null)
+  const [newPlace, setNewPlace] = useState(null)
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
@@ -33,6 +35,14 @@ function App() {
     setCurrentPlaceId(id)
   }
 
+  const handleAddClick = (e) => {
+    const [lng,lat] = e.lngLat; 
+    setNewPlace({
+      lat: lat,
+      lng: lng,
+    })
+    console.log(newPlace)
+  }
   
   return (
     <div className="App">
@@ -41,6 +51,7 @@ function App() {
         mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapStyle="mapbox://styles/jwoltjen/ckxglnm0n07ay14o9sc1vie84"
+        onDblClick = {handleAddClick}
       >
       {pins.map(p => (
       <>
@@ -83,6 +94,14 @@ function App() {
         )}
         </>
       ))}
+       {/* <Popup
+          latitude={}
+          longitude={}
+          closeButton={true}
+          closeOnClick={false}
+          anchor="left" 
+          onClose={()=>setCurrentPlaceId(null)}
+        >Sup D</Popup> */}
     </ReactMapGL>
   </div>
   );
