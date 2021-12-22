@@ -60,7 +60,9 @@ function App() {
               longitude={p.long}
               closeButton={true}
               closeOnClick={false}
-              anchor="left" >
+              anchor="left" 
+              onClose={()=>setCurrentPlaceId(null)}
+        >
               <div className="card">
                 <label>Place</label>
                 <h4 className='place'>{p.title}</h4>
