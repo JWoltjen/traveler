@@ -101,7 +101,7 @@ function App() {
           closeButton={true}
           closeOnClick={false}
           anchor="left" 
-          onClose={()=>setCurrentPlaceId(null)}
+          onClose={()=>setNewPlace(null)}
         >Sup D</Popup>
       )}
     </ReactMapGL>
