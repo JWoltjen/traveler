@@ -31,8 +31,9 @@ function App() {
     getPins()
   }, [])
 
-  const handleMarkerClick = (id) =>{
+  const handleMarkerClick = (id, lat, long) =>{
     setCurrentPlaceId(id)
+    setViewport({...viewport, latitude: lat, longitude: long })
   }
 
   const handleAddClick = (e) => {
@@ -62,7 +63,7 @@ function App() {
           offsetTop={-7 * viewport.zoom}
         >
           <Room style={{fontSize: viewport.zoom * 7, color:"slateblue"}}
-          onClick={()=>handleMarkerClick(p._id)}
+          onClick={()=>handleMarkerClick(p._id, p.lat, p.long)}
           />
         </Marker>
         {p._id === currentPlaceId && (
