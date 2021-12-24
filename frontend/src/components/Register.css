@@ -18,4 +18,28 @@
 
 .logo{
     color: slateblue; 
+    display: flex; 
+    align-items: center;
+    font-weight: 700;
+}
+
+.registerBtn{
+    border: none; 
+    padding: 5px;
+    border-radius: 5px; 
+    color: white; 
+    background-color: slateblue;
+
+}
+
+.success{
+    color: green; 
+    font-size: 12px; 
+    text-align: center; 
+}
+
+.failure {
+    color: red; 
+    font-size: 12px; 
+    text-align: center; 
 }
