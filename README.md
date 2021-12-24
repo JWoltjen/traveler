@@ -12,7 +12,7 @@ A MERN application that allows users to pin travel destinations and leave review
   
  The application relies on two components from ReactMapGL, Marker and Popup. Marker is used to display custom icons on the map overlay. Similarly, Popup displays a card on the map overlay which is useful for entering information. Marker also relies on the useState hook for viewPort and setViewPort,  so that whenever a new Marker or Popup needs to be displayed, we use the spread operator to carry the value of the memory stored in viewport and pass on new values based on the latitude and longitude, and id of the mouse click:
  
- ###1. Adding the new information to useState
+ 1. Adding the new information to useState
  
         const handleAddClick = (e) => {
           const [lng, lat] = e.lngLat
@@ -22,13 +22,13 @@ A MERN application that allows users to pin travel destinations and leave review
           })
          }
  
- ###2. Centering the viewport
+ 2. Centering the viewport
   
         const handleMarkerClick = (id, lat, long) => {
           setCurrentPlace(id)
           setViewPort({...viewport, latitude: lat, longitude: long})
         }
   
- ###2. Adding the values
+ 3. Adding the values
  
         const 
