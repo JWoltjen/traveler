@@ -1,6 +1,6 @@
 import "./Login.css"
 
-export default function Login() {
+export default function Login(setShowLogin) {
     return (
         <div>
             
