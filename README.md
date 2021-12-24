@@ -16,7 +16,7 @@ A MERN application that allows users to pin travel destinations and leave review
  
         const handleAddClick = (e) => {
           const [lng, lat] = e.lngLat
-          setNewPlacee({
+          setNewPlace({
             lat: lat, 
             lng: lng,
           })
