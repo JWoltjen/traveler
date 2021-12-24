@@ -31,4 +31,26 @@ A MERN application that allows users to pin travel destinations and leave review
   
  3. Adding the values
  
-        const 
+        const handleSubmit = async (e) => {
+          e.preventDefault();
+          const newPin = {
+            username: currentUser, 
+            title,
+            desc,
+            rating,
+            lat: newPlace.lat, 
+            long: newPlace.lng
+        }
+  
+ 3.5. Ship it off to the database (same lexical scope/function as above)
+ 
+         try {
+              const res = await axios.post("/pins", newPin)
+              setPins([...pins, res.data])
+              setNewPlace(null)
+            } catch (err) {
+              console.log(err)
+            }
+          }
+
+        
