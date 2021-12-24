@@ -44,13 +44,13 @@ A MERN application that allows users to pin travel destinations and leave review
   
  3.5. Ship it off to the database (same lexical scope/function as above)
  
-         try {
-              const res = await axios.post("/pins", newPin)
-              setPins([...pins, res.data])
-              setNewPlace(null)
-            } catch (err) {
-              console.log(err)
+           try {
+                const res = await axios.post("/pins", newPin)
+                setPins([...pins, res.data])
+                setNewPlace(null)
+              } catch (err) {
+                console.log(err)
+              }
             }
-          }
 
         
