@@ -3,7 +3,7 @@ import { Room, Cancel } from "@material-ui/icons";
 import { useState, useRef } from 'react'; 
 import axios from "axios";
 
-function Login({setShowLogin}) {
+function Login({setShowLogin, myStorage, setCurrentUser}) {
 
     const [error, setError] = useState(false)
     const nameRef = useRef()
@@ -16,7 +16,10 @@ function Login({setShowLogin}) {
             password: passwordRef.current.value,
         }; 
         try {
-            await axios.post("/users/login", newUser); 
+            const res = await axios.post("/users/login", newUser); 
+            myStorage.setItem("user", res.data.username)
+            setCurrentUser(res.data.username)
+            setShowLogin(false)
             setError(false)
         } catch (err) {
             setError(true)

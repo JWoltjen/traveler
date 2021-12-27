@@ -8,7 +8,8 @@ import Register from '../src/components/Register'
 import Login from './components/Login';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
+  const myStorage = window.localStorage; 
+  const [currentUser, setCurrentUser] = useState(myStorage.getItem("user")); 
   const [pins, setPins] = useState([])
   const [currentPlaceId, setCurrentPlaceId] = useState(null)
   const [newPlace, setNewPlace] = useState(null)
@@ -52,6 +53,11 @@ function App() {
     console.log(newPlace)
   }
 
+  const handleLogout = () => {
+    myStorage.removeItem("user"); 
+    setCurrentUser(null); 
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPin = {
@@ -80,7 +86,7 @@ function App() {
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapStyle="mapbox://styles/jwoltjen/ckxglnm0n07ay14o9sc1vie84"
         onDblClick = {handleAddClick}
-        transitionDuration="500"
+        transitionDuration="200"
       >
       {pins.map(p => (
       <>
@@ -154,7 +160,7 @@ function App() {
           </div>
         </Popup>
       )}
-      {currentUser ? ( <button className="button logout">Log out</button>
+      {currentUser ? ( <button className="button logout" onClick={handleLogout}>Log out</button>
       ) : (
         <div className="buttons">
           <button className="button login" onClick={()=>setShowLogin(true)}>Login</button>
@@ -162,7 +168,7 @@ function App() {
         </div>
       )}
       {showRegister &&  <Register setShowRegister={setShowRegister}/>}
-      {showLogin && <Login setShowLogin={setShowLogin}/>}
+      {showLogin && <Login setShowLogin={setShowLogin} myStorage={myStorage} setCurrentUser={setCurrentUser}/>}
     </ReactMapGL>
   </div>
   );
