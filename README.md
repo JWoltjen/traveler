@@ -10,7 +10,7 @@ A MERN application that allows users to pin travel destinations and leave review
 
 ## how does the application handle creating new pins? 
   
- The application relies on two components from ReactMapGL, Marker and Popup. Marker is used to display custom icons on the map overlay. Similarly, Popup displays a card on the map overlay which is useful for entering information. Marker also relies on the useState hook for viewPort and setViewPort,  so that whenever a new Marker or Popup needs to be displayed, we use the spread operator to carry the value of the memory stored in viewport and pass on new values based on the latitude and longitude, and id of the mouse click:
+The application relies on two components from ReactMapGL, Marker and Popup. Marker is used to display custom icons on the map overlay. Similarly, Popup displays a card on the map overlay which is useful for entering information. Marker also relies on the useState hook for viewPort and setViewPort,  so that whenever a new Marker or Popup needs to be displayed, we use the spread operator to carry the value of the memory stored in viewport and pass on new values based on the latitude and longitude, and id of the mouse click:
  
  1. Adding the new information into state:
  
@@ -53,4 +53,15 @@ A MERN application that allows users to pin travel destinations and leave review
               }
             }
 
-        
+ ## how does the application handle user login/logout? 
+ 
+ There are two main aspects of this application's login/logout feature. First is the conditional logic that is used to display the login/logout/register buttons. This is handled writing a common conditional pattern for React which uses the ternary operator. This code says if there's a current user, display the logout button, if there is no current user, display login or register buttons instead: 
+
+         {currentUser ? ( <button className="button logout" onClick={handleLogout}>Log out</button>
+      ) : (
+        <div className="buttons">
+          <button className="button login" onClick={()=>setShowLogin(true)}>Login</button>
+          <button className="button register" onClick={()=>setShowRegister(true)}>Register</button>
+        </div>
+      )}
+
