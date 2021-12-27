@@ -53,6 +53,11 @@ function App() {
     console.log(newPlace)
   }
 
+  const handleLogout = () => {
+    myStorage.removeItem("user"); 
+    setCurrentUser(null); 
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPin = {
@@ -155,7 +160,7 @@ function App() {
           </div>
         </Popup>
       )}
-      {currentUser ? ( <button className="button logout">Log out</button>
+      {currentUser ? ( <button className="button logout" onClick={handleLogout}>Log out</button>
       ) : (
         <div className="buttons">
           <button className="button login" onClick={()=>setShowLogin(true)}>Login</button>
