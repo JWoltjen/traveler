@@ -80,7 +80,7 @@ function App() {
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapStyle="mapbox://styles/jwoltjen/ckxglnm0n07ay14o9sc1vie84"
         onDblClick = {handleAddClick}
-        transitionDuration="500"
+        transitionDuration="200"
       >
       {pins.map(p => (
       <>
