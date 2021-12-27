@@ -55,7 +55,9 @@ The application relies on two components from ReactMapGL, Marker and Popup. Mark
 
  ## how does the application handle user login/logout? 
  
- There are two main aspects of this application's login/logout feature. First is the conditional logic that is used to display the login/logout/register buttons. This is handled writing a common conditional pattern for React which uses the ternary operator. This code says if there's a current user, display the logout button, if there is no current user, display login or register buttons instead: 
+ There are three main aspects of this application's login/logout feature. First is the conditional logic that is used to display the login/logout/register buttons. This is handled writing a common conditional pattern for React which uses the ternary operator. This code says if there's a current user, display the logout button, if there is no current user, display login or register buttons instead: 
+ 
+ 1. Conditionally Render appropriate buttons based on state:
 
          {currentUser ? ( <button className="button logout" onClick={handleLogout}>Log out</button>
       ) : (
@@ -64,4 +66,9 @@ The application relies on two components from ReactMapGL, Marker and Popup. Mark
           <button className="button register" onClick={()=>setShowRegister(true)}>Register</button>
         </div>
       )}
+      
+2. Display Either Register or Login Component if user clicks Login or Register Buttons:
+
+
+3. Handle successful/unsuccessful login or register attempt
 
